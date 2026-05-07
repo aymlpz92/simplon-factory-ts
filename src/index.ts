@@ -6,9 +6,10 @@ import { Shoe } from './model/Shoe';
 import {ShoeSize} from "./enum/ShoeSize";
 import { ClothingSize } from "./enum/ClothingSize";
 
-
+// Customer instances
 const michel = new Customer("Michel",' michel@michel.com');
 const bobby = new Customer("Bobby",' bobby@bobby.com');
+
 // Clothing instances
 const shirt = new Clothing( "T-Shirt Coton Bio",  0.3,  29.99, ClothingSize.M);
 const jacket = new Clothing( "Veste en Jean",       0.8,  89.99, ClothingSize.L);
@@ -23,18 +24,24 @@ const sandals  = new Shoe( "Sandales Confort",        0.4, 39.99,  ShoeSize.s40)
 const runners  = new Shoe( "Running Pro Légères",     0.6, 99.99,  ShoeSize.s41);
 const loafers  = new Shoe( "Mocassins Élégants",      0.5, 89.99,  ShoeSize.s44);
 
+// Orders instances
+const orderMichel = new Order(michel);
+const orderBobby = new Order(bobby);
 
-const michelProducts: Product[] = [];
-const bobbyProducts: Product[] = [];
-const orderMichel = new Order(michel, michelProducts);
-const orderBobby = new Order(bobby, bobbyProducts);
+// Afficher les infos des clients
 console.log(michel.displayInfo());
 console.log(bobby.displayInfo());
 
-
+// Ajouter des produits à la commande
 orderMichel.addProduct(jacket, shirt, hoodie, sneakers, runners);
 orderBobby.addProduct(dress, pants, boots, loafers, sandals)
+
 console.log(orderMichel.displayOrder());
+console.log(orderBobby.displayOrder());
+
+// Retirer un produit de la commande
 orderMichel.removeProduct(2);
-orderBobby.removeProduct(4)
+orderBobby.removeProduct(4);
+
 console.log(orderMichel.displayOrder());
+console.log(orderBobby.displayOrder());

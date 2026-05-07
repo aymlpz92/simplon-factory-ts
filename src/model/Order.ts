@@ -4,13 +4,12 @@ import type {Customer} from "./Customer";
 export class Order {
     orderId: number = 0;
     customer: Customer;
-    productList: Product[];
+    productList: Product[] = [];
     orderDate: Date;
 
-    constructor(customer: Customer, productList: Product[]) {
+    constructor(customer: Customer) {
         this.orderId++;
         this.customer = customer;
-        this.productList = productList;
         this.orderDate = new Date();
     }
 
